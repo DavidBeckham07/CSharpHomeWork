@@ -1,0 +1,11 @@
+D:\学习\C#\GenericClass\GenericClass\bin\Debug\netcoreapp2.1\GenericClass.deps.json
+D:\学习\C#\GenericClass\GenericClass\bin\Debug\netcoreapp2.1\GenericClass.runtimeconfig.json
+D:\学习\C#\GenericClass\GenericClass\bin\Debug\netcoreapp2.1\GenericClass.runtimeconfig.dev.json
+D:\学习\C#\GenericClass\GenericClass\bin\Debug\netcoreapp2.1\GenericClass.dll
+D:\学习\C#\GenericClass\GenericClass\bin\Debug\netcoreapp2.1\GenericClass.pdb
+D:\学习\C#\GenericClass\GenericClass\obj\Debug\netcoreapp2.1\GenericClass.csprojAssemblyReference.cache
+D:\学习\C#\GenericClass\GenericClass\obj\Debug\netcoreapp2.1\GenericClass.csproj.CoreCompileInputs.cache
+D:\学习\C#\GenericClass\GenericClass\obj\Debug\netcoreapp2.1\GenericClass.AssemblyInfoInputs.cache
+D:\学习\C#\GenericClass\GenericClass\obj\Debug\netcoreapp2.1\GenericClass.AssemblyInfo.cs
+D:\学习\C#\GenericClass\GenericClass\obj\Debug\netcoreapp2.1\GenericClass.dll
+D:\学习\C#\GenericClass\GenericClass\obj\Debug\netcoreapp2.1\GenericClass.pdb
