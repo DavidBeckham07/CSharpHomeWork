@@ -1,0 +1,11 @@
+D:\学习\C#\OrderSystem\OrderSystem\obj\Debug\netcoreapp2.1\OrderSystem.csprojAssemblyReference.cache
+D:\学习\C#\OrderSystem\OrderSystem\obj\Debug\netcoreapp2.1\OrderSystem.csproj.CoreCompileInputs.cache
+D:\学习\C#\OrderSystem\OrderSystem\obj\Debug\netcoreapp2.1\OrderSystem.AssemblyInfoInputs.cache
+D:\学习\C#\OrderSystem\OrderSystem\obj\Debug\netcoreapp2.1\OrderSystem.AssemblyInfo.cs
+D:\学习\C#\OrderSystem\OrderSystem\bin\Debug\netcoreapp2.1\OrderSystem.deps.json
+D:\学习\C#\OrderSystem\OrderSystem\bin\Debug\netcoreapp2.1\OrderSystem.runtimeconfig.json
+D:\学习\C#\OrderSystem\OrderSystem\bin\Debug\netcoreapp2.1\OrderSystem.runtimeconfig.dev.json
+D:\学习\C#\OrderSystem\OrderSystem\bin\Debug\netcoreapp2.1\OrderSystem.dll
+D:\学习\C#\OrderSystem\OrderSystem\bin\Debug\netcoreapp2.1\OrderSystem.pdb
+D:\学习\C#\OrderSystem\OrderSystem\obj\Debug\netcoreapp2.1\OrderSystem.dll
+D:\学习\C#\OrderSystem\OrderSystem\obj\Debug\netcoreapp2.1\OrderSystem.pdb
