@@ -21,7 +21,10 @@ namespace OrderSystem
         {
                 while (true)
                 {
-                    string op = io.GetString("input add (an order)/ search (order)/ delete (order) / modify (order) / show (current orderlist)to start the service.");
+                    
+                    string op = io.GetString("input add (an order)/ search (order)/ delete (order) " +
+                        "/ \nmodify (order) / show (current orderlist) / export (to a xml file)" +
+                        "/ \nimport (to show the exported xml file)to start the service.");
                     try
                     {
                         switch (op.ToLower())
@@ -49,8 +52,15 @@ namespace OrderSystem
                             io.Printf(service);
                             break;
 
+                        case ("export"):                            
+                            service.Export(io.GetString("please input the xml file name"));
+                            break;
 
-                            default:
+                        case ("import"):
+                            List<Order> orders = service.Import();
+                            foreach (Order order in orders) { io.Printf(order); }
+                            break;
+                         default:
                                 throw new Exception("illegal input");
                         }
                     }
@@ -58,8 +68,10 @@ namespace OrderSystem
                     {
                         io.Printf(e.Message);
                     }
+                service.Export("text");
 
-                }
+
+            }
 
            
         }
@@ -95,7 +107,7 @@ namespace OrderSystem
 
             IEnumerable<String> orderItemPara;
 
-                service.InitOrder(orderInitPara);
+            Order order =  service.InitOrder(orderInitPara);
             if(io.checkContinue("do you want to add some items?(yes / no)"))
             {
                 do
@@ -103,7 +115,23 @@ namespace OrderSystem
                     try
                     {
                         orderItemPara = io.GetItemsPara();
-                        service.CompleOrder(orderItemPara);
+                        List<OrderItem> items = new List<OrderItem>();
+                        foreach (string itempara in orderItemPara)
+                        {
+                            string[] paras = itempara.Split(" ");
+                            string name = "";
+                            for (int i = 0; i <= paras.Length - 3; i++)
+                            {
+                                name += paras[i];
+                                OrderItem item = new OrderItem(name, 
+                                    double.Parse(paras[paras.Length - 2]), 
+                                    int.Parse(paras[paras.Length - 1]));
+                                items.Add(item);
+                            }
+                            
+
+                        }
+                        service.CompleOrder(order, items);
                     }
                     catch (Exception e)
                     {

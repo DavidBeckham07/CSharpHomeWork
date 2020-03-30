@@ -1,0 +1,17 @@
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\OrderSystemTest.deps.json
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\OrderSystemTest.runtimeconfig.json
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\OrderSystemTest.runtimeconfig.dev.json
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\OrderSystemTest.dll
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\OrderSystemTest.pdb
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\OrderSystem.dll
+D:\学习\C#\OrderSystem\OrderSystemTest\bin\Debug\netcoreapp2.1\OrderSystem.pdb
+D:\学习\C#\OrderSystem\OrderSystemTest\obj\Debug\netcoreapp2.1\OrderSystemTest.csprojAssemblyReference.cache
+D:\学习\C#\OrderSystem\OrderSystemTest\obj\Debug\netcoreapp2.1\OrderSystemTest.csproj.CoreCompileInputs.cache
+D:\学习\C#\OrderSystem\OrderSystemTest\obj\Debug\netcoreapp2.1\OrderSystemTest.AssemblyInfoInputs.cache
+D:\学习\C#\OrderSystem\OrderSystemTest\obj\Debug\netcoreapp2.1\OrderSystemTest.AssemblyInfo.cs
+D:\学习\C#\OrderSystem\OrderSystemTest\obj\Debug\netcoreapp2.1\OrderSystemTest.csproj.CopyComplete
+D:\学习\C#\OrderSystem\OrderSystemTest\obj\Debug\netcoreapp2.1\OrderSystemTest.dll
+D:\学习\C#\OrderSystem\OrderSystemTest\obj\Debug\netcoreapp2.1\OrderSystemTest.pdb

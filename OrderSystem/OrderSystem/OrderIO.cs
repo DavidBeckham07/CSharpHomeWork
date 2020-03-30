@@ -12,7 +12,7 @@ namespace OrderSystem
         {
             while (true)
             {
-                string input = Console.ReadLine();
+                string input = Console.ReadLine().Trim();
                 if (input.Length != 0)
                 {
                     return input;
@@ -44,7 +44,7 @@ namespace OrderSystem
         }
 
         //获取用户数字输入
-        public double GetNumber(string question)
+        public double GetDoubleNumber(string question)
         {
             Printf(question);
             double num = 0;
@@ -59,6 +59,24 @@ namespace OrderSystem
                 throw new Exception("what you input just now is even not a number");
             }
         }
+
+        //获取用户数字输入
+        public int GetIntNumber(string question)
+        {
+            Printf(question);
+            int num = 0;
+
+            string input = Console.ReadLine();
+            if (int.TryParse(input, out num))
+            {
+                return num;
+            }
+            else
+            {
+                throw new Exception("what you input just now is even not a number");
+            }
+        }
+
 
         //输出
         public void Printf(object obj)
@@ -75,7 +93,7 @@ namespace OrderSystem
             
             operation[0] = GetString("input the name of the item you wanna modify, you are only allowed to operate the existed items");
             operation[1] = GetString("input the operation name (add / reduce)");
-            operation[2] = GetNumber("input the amount you wanna alter").ToString();
+            operation[2] = GetDoubleNumber("input the amount you wanna alter").ToString();
 
             return operation;
         }

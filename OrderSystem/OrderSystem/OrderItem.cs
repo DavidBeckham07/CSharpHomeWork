@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OrderSystem
 {
-    class OrderItem
+    public class OrderItem
     {
         public Goods goods;
         public int Number { get; set; }
@@ -29,7 +29,7 @@ namespace OrderSystem
         public override bool Equals(object obj)
         {
             OrderItem item = obj as OrderItem;
-            return item!=null && item.goods.Name == goods.Name;
+            return item!=null && item.goods.Equals(goods);
         }
 
         public override string ToString()
@@ -42,10 +42,12 @@ namespace OrderSystem
         }
     }
 
-    class Goods
+    public class Goods
     {
         public string Name { get; set; }
         public double Price { get; set; }
+
+        public Goods() { }
 
         public Goods(String name, double price ){
             Name = name;
@@ -54,7 +56,8 @@ namespace OrderSystem
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Goods g = obj as Goods;
+            return g != null && g.Name == Name && g.Price == Price;
         }
 
         public override int GetHashCode()

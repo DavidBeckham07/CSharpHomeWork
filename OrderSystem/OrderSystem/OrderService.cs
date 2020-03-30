@@ -2,31 +2,38 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace OrderSystem
 {
-    class OrderService
+    public class OrderService
     {
-        LinkedList<Order> orderList;
+        public List<Order> orderList;
+        XmlSerializer orderXmlSeri;
+        string xmlFileName;
 
 
         public OrderService()
         {
-            orderList = new LinkedList<Order>();
+            orderList = new List<Order>();
+            orderXmlSeri = new XmlSerializer(typeof(List<Order>));
         }
 
-        public Order SearchOrder(String field, string value)
+        public Order SearchOrder(string field, string value)
         {
             IEnumerable<Order> order = orderList.AsEnumerable();
-            switch(field){
+            switch (field)
+            {
                 case ("id"):
                     order = order.Where(x => x.ID == value);
                     break;
+
                 case ("client"):
                     order = order.Where(x => x.Client == value);
                     break;
             }
-            if(order.ToList().Count() == 0)
+            if (order.ToList().Count() == 0)
             {
                 throw new Exception("no such order");
             }
@@ -34,49 +41,68 @@ namespace OrderSystem
 
         }
 
-        internal void DeleteOrder(string field, string value)
+        public void DeleteOrder(string field, string value)
         {
             Order result = SearchOrder(field, value);
             orderList.Remove(result);
         }
 
         // 初始化订单
-        internal void InitOrder(string orderInitPara)
+        public Order InitOrder(string orderInitPara)
         {
             Order newOrder = new Order(orderList.Count().ToString());
             newOrder.Client = orderInitPara;
-            orderList.AddLast(newOrder);
+            orderList.Add(newOrder);
+            return newOrder;
 
         }
 
-        internal void CompleOrder(IEnumerable<string> orderItemPara)
+        public void CompleOrder(Order order, IEnumerable<OrderItem> orderItems)
         {
-            foreach(string info in orderItemPara)
+            foreach (OrderItem item in orderItems)
             {
-                string[] paras = info.Split(" ");
-                Order order = orderList.ElementAt(orderList.Count - 1);
-                string name = "";
-                for(int i = 0; i <= paras.Count() - 3; i++)
-                {
-                    name += paras[i];
-                }
-
-                OrderItem item = new OrderItem(name, double.Parse(paras[paras.Count() - 2]), int.Parse(paras[paras.Count() - 1]));
                 order.AddItem(item);
             }
         }
 
-        internal void ModiOrder(Order target, string name, string op, string num)
+        internal void ModiOrder(Order target, string name, string op, string num_S)
         {
+            if (int.TryParse(num_S, out int num) == false)
+            {
+                throw new Exception("Augument illegal");
+            }
             switch (op.ToLower())
             {
                 case ("add"):
                     target.AddItem(name, num);
                     break;
                 case ("reduce"):
-                    target.AddItem(name, (-1 * int.Parse(num)).ToString());
+                    target.AddItem(name, (-1 * num));
                     break;
             }
+        }
+
+
+        public void Export(string fileName)
+
+        {
+            xmlFileName = "D:\\" + fileName + ".xml";
+            using (FileStream fs = new FileStream(xmlFileName, FileMode.Create))
+            {
+                orderXmlSeri.Serialize(fs, orderList);
+            }
+
+        }
+
+        public List<Order> Import()
+        {
+            if (xmlFileName.Length == 0) { throw new Exception("xml file has not yet generated"); }
+            using (FileStream fs = new FileStream(xmlFileName, FileMode.Open))
+            {
+                List<Order> orderList = (List<Order>)orderXmlSeri.Deserialize(fs);
+            }
+            return orderList;
+
         }
 
         public override bool Equals(object obj)
@@ -92,97 +118,16 @@ namespace OrderSystem
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach(Order order in orderList)
+            foreach (Order order in orderList)
             {
                 sb.Append(order.ToString());
 
             }
             return sb.ToString();
         }
-    }
 
 
-    class Order
-    {
-        private List<OrderItem> Items;
-        public String ID { get; set; }
-        public String Client { get; set; }
-        public double TotalSum => Items.ConvertAll(x => x.TotalSum).Sum();
-
-        //无参数构造函数，分配id号
-        public Order(string id)
-        {
-            ID = id;
-            Items = new List<OrderItem>();
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is Order order)
-            {
-                return ID == order.ID;
-            }
-            else
-            {
-                throw (new Exception("error: uncomparable"));
-            }
-        }
-
-        public void AddItem(OrderItem item)
-        {
-            IEnumerable<OrderItem> items = Items.AsEnumerable().Where(x => x.Equals(item));
-            if(items.Count() == 0)
-            {
-                Items.Add(item);
-            }
-            else
-            {
-                items.ToList()[0].Number += item.Number;
-            }
-            
-        }
-
-/*
-        public void AddItem(String info)
-        {
-                OrderItem item = new OrderItem(info);
-                Items.Add(item);
-        }
-        */
-
-        public override string ToString()
-        {
-
-            StringBuilder str = new StringBuilder();
-
-            str.Append("\n-----------------------\n");
-            str.Append("ID:" + ID + "\n");
-            str.Append("Client:" + Client + "\n");
-            str.Append("-----------------------\n");
-            str.Append("Item\t|Price\t|Number\n" );
-            str.Append("-----------------------\n");
-            foreach (OrderItem item in Items)
-            {
-                str.Append(item);
-                str.Append("-----------------------\n");
-            }
-            return str.ToString();
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Items, ID, Client, TotalSum);
-        }
-
-        internal void AddItem(string name, string num)
-
-        {
-            IEnumerable<OrderItem> item = Items.AsEnumerable().Where(x => x.goods.Name == name);
-            if(item.ToList().Count() == 0)
-            {
-                throw new Exception("no such item found!");
-            }
-            item.ToList()[0].Number += int.Parse(num);
-        }
     }
 }
+
+
