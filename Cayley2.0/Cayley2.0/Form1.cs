@@ -37,11 +37,17 @@ namespace Cayley2._0
 
             InitializeComponent();
             IterationTimes = 10;
+            this.tBIterTimes.Value = IterationTimes;
             MainLength = 200;
+            this.tBLength.Value = MainLength / 10;
             AngleLeft = 30;
+            tBAngleLeft.Value = AngleLeft;
             AngleRight = 20;
+            tBAngleRight.Value = AngleRight;
             RatioLeft = 35;
+            tBRatioLeft.Value = RatioLeft;
             RatioRight = 30;
+            tBRatioRight.Value = RatioRight;
             Pen = Pens.Black;
             panelColor.BackColor = Color.Black;
             graphics = treePanel.CreateGraphics();
@@ -88,44 +94,50 @@ namespace Cayley2._0
 
         private void TBIterTimes_Scroll(object sender, EventArgs e)
         {
+
             this.IterationTimes = tBIterTimes.Value;
+            labelTimes.Text = labelTimes.Text.Split(':')[0] + ":" + IterationTimes*10;
+             
+
             treePanel.Refresh();
         }
 
         private void TBLength_Scroll(object sender, EventArgs e)
         {
-            this.MainLength = tBLength.Value;
+            this.MainLength = tBLength.Value * 10;
+            labelLength.Text = labelLength.Text.Split(':')[0] + ":" + MainLength;
             treePanel.Refresh();
         }
 
         private void TBAngleLeft_Scroll(object sender, EventArgs e)
         {
             this.AngleLeft = tBAngleLeft.Value;
+            labelAngleLeft.Text = labelLength.Text.Split(':')[0] + ":" + AngleLeft;
             treePanel.Refresh();
         }
 
         private void TBAngleRight_Scroll(object sender, EventArgs e)
         {
             this.AngleRight = tBAngleRight.Value;
+            labelAngleRight.Text = labelAngleRight.Text.Split(':')[0] + ":" + AngleRight;
             treePanel.Refresh();
         }
 
         private void TBRatioLeft_Scroll(object sender, EventArgs e)
         {
+            
             this.RatioLeft = tBRatioLeft.Value;
+            labelRatioLeft.Text = labelRatioLeft.Text.Split(':')[0] + ":" + RatioLeft;
             treePanel.Refresh();
         }
 
         private void TBRatioRight_Scroll(object sender, EventArgs e)
         {
             this.RatioRight = tBRatioLeft.Value;
+            labelRatioRight.Text = labelRatioRight.Text.Split(':')[0] + ":" + RatioRight;
             treePanel.Refresh();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void TreePanel_Paint(object sender, PaintEventArgs e)
         {
