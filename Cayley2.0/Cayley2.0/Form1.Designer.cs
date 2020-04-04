@@ -44,7 +44,6 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.btnColor = new System.Windows.Forms.Button();
             this.panelColor = new System.Windows.Forms.Panel();
-            this.treePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBRatioRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBIterTimes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLength)).BeginInit();
@@ -57,11 +56,9 @@
             // 
             this.treePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.treePanel.Controls.Add(this.panelColor);
-            this.treePanel.Controls.Add(this.btnColor);
             this.treePanel.Location = new System.Drawing.Point(37, 59);
             this.treePanel.Name = "treePanel";
-            this.treePanel.Size = new System.Drawing.Size(385, 474);
+            this.treePanel.Size = new System.Drawing.Size(385, 572);
             this.treePanel.TabIndex = 0;
             this.treePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TreePanel_Paint);
             // 
@@ -170,7 +167,7 @@
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(-79, 483);
+            this.btnColor.Location = new System.Drawing.Point(552, 481);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(103, 33);
             this.btnColor.TabIndex = 15;
@@ -180,7 +177,7 @@
             // 
             // panelColor
             // 
-            this.panelColor.Location = new System.Drawing.Point(72, 486);
+            this.panelColor.Location = new System.Drawing.Point(703, 484);
             this.panelColor.Name = "panelColor";
             this.panelColor.Size = new System.Drawing.Size(55, 29);
             this.panelColor.TabIndex = 16;
@@ -189,8 +186,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 567);
+            this.ClientSize = new System.Drawing.Size(1106, 665);
+            this.Controls.Add(this.panelColor);
             this.Controls.Add(this.treePanel);
+            this.Controls.Add(this.btnColor);
             this.Controls.Add(this.tBLength);
             this.Controls.Add(this.tBIterTimes);
             this.Controls.Add(this.label6);
@@ -206,7 +205,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.treePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tBRatioRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBIterTimes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLength)).EndInit();
