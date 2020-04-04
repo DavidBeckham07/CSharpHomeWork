@@ -50,8 +50,10 @@ namespace Cayley2._0
 
         }
 
+        
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
+            /*
             foreach (Control control in this.Controls)
             {
                 if (control.Name != "treePanel")
@@ -62,6 +64,7 @@ namespace Cayley2._0
                         );
                 }
             }
+            */
         }
 
         void drawCayleyTree(int n,
