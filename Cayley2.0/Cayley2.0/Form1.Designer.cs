@@ -29,91 +29,103 @@
         private void InitializeComponent()
         {
             this.treePanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tBRatioRight = new System.Windows.Forms.TrackBar();
             this.tBIterTimes = new System.Windows.Forms.TrackBar();
             this.tBLength = new System.Windows.Forms.TrackBar();
             this.tBAngleLeft = new System.Windows.Forms.TrackBar();
             this.tBAngleRight = new System.Windows.Forms.TrackBar();
             this.tBRatioLeft = new System.Windows.Forms.TrackBar();
-            this.tBRatioRight = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.btnColor = new System.Windows.Forms.Button();
+            this.panelColor = new System.Windows.Forms.Panel();
             this.treePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tBRatioRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBIterTimes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBAngleLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBAngleRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBRatioLeft)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tBRatioRight)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // treePanel
             // 
-            this.treePanel.Controls.Add(this.label6);
-            this.treePanel.Controls.Add(this.tBRatioRight);
-            this.treePanel.Location = new System.Drawing.Point(25, 59);
+            this.treePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.treePanel.Controls.Add(this.panelColor);
+            this.treePanel.Controls.Add(this.btnColor);
+            this.treePanel.Location = new System.Drawing.Point(37, 59);
             this.treePanel.Name = "treePanel";
-            this.treePanel.Size = new System.Drawing.Size(385, 357);
+            this.treePanel.Size = new System.Drawing.Size(385, 474);
             this.treePanel.TabIndex = 0;
             this.treePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TreePanel_Paint);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(552, 431);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 15);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Ratio right:";
+            // 
+            // tBRatioRight
+            // 
+            this.tBRatioRight.Location = new System.Drawing.Point(661, 422);
+            this.tBRatioRight.Name = "tBRatioRight";
+            this.tBRatioRight.Size = new System.Drawing.Size(343, 56);
+            this.tBRatioRight.TabIndex = 6;
+            this.tBRatioRight.Scroll += new System.EventHandler(this.TBRatioRight_Scroll);
+            // 
             // tBIterTimes
             // 
-            this.tBIterTimes.Location = new System.Drawing.Point(153, 20);
+            this.tBIterTimes.Location = new System.Drawing.Point(661, 69);
             this.tBIterTimes.Name = "tBIterTimes";
-            this.tBIterTimes.Size = new System.Drawing.Size(104, 56);
+            this.tBIterTimes.Size = new System.Drawing.Size(343, 56);
             this.tBIterTimes.TabIndex = 1;
             this.tBIterTimes.Scroll += new System.EventHandler(this.TBIterTimes_Scroll);
             // 
             // tBLength
             // 
-            this.tBLength.Location = new System.Drawing.Point(153, 82);
+            this.tBLength.Location = new System.Drawing.Point(661, 143);
             this.tBLength.Name = "tBLength";
-            this.tBLength.Size = new System.Drawing.Size(104, 56);
+            this.tBLength.Size = new System.Drawing.Size(343, 56);
             this.tBLength.TabIndex = 2;
             this.tBLength.Scroll += new System.EventHandler(this.TBLength_Scroll);
             // 
             // tBAngleLeft
             // 
-            this.tBAngleLeft.Location = new System.Drawing.Point(153, 144);
+            this.tBAngleLeft.Location = new System.Drawing.Point(661, 217);
             this.tBAngleLeft.Name = "tBAngleLeft";
-            this.tBAngleLeft.Size = new System.Drawing.Size(104, 56);
+            this.tBAngleLeft.Size = new System.Drawing.Size(343, 56);
             this.tBAngleLeft.TabIndex = 3;
             this.tBAngleLeft.Scroll += new System.EventHandler(this.TBAngleLeft_Scroll);
             // 
             // tBAngleRight
             // 
-            this.tBAngleRight.Location = new System.Drawing.Point(153, 216);
+            this.tBAngleRight.Location = new System.Drawing.Point(661, 291);
             this.tBAngleRight.Name = "tBAngleRight";
-            this.tBAngleRight.Size = new System.Drawing.Size(104, 56);
+            this.tBAngleRight.Size = new System.Drawing.Size(343, 56);
             this.tBAngleRight.TabIndex = 4;
             this.tBAngleRight.Scroll += new System.EventHandler(this.TBAngleRight_Scroll);
             // 
             // tBRatioLeft
             // 
-            this.tBRatioLeft.Location = new System.Drawing.Point(153, 278);
+            this.tBRatioLeft.Location = new System.Drawing.Point(661, 356);
             this.tBRatioLeft.Name = "tBRatioLeft";
-            this.tBRatioLeft.Size = new System.Drawing.Size(104, 56);
+            this.tBRatioLeft.Size = new System.Drawing.Size(343, 56);
             this.tBRatioLeft.TabIndex = 5;
             this.tBRatioLeft.Scroll += new System.EventHandler(this.TBRatioLeft_Scroll);
-            // 
-            // tBRatioRight
-            // 
-            this.tBRatioRight.Location = new System.Drawing.Point(89, 377);
-            this.tBRatioRight.Name = "tBRatioRight";
-            this.tBRatioRight.Size = new System.Drawing.Size(104, 56);
-            this.tBRatioRight.TabIndex = 6;
-            this.tBRatioRight.Scroll += new System.EventHandler(this.TBRatioRight_Scroll);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 27);
+            this.label1.Location = new System.Drawing.Point(528, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 15);
             this.label1.TabIndex = 7;
@@ -123,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 144);
+            this.label2.Location = new System.Drawing.Point(560, 217);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 15);
             this.label2.TabIndex = 8;
@@ -132,76 +144,77 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 216);
+            this.label3.Location = new System.Drawing.Point(552, 291);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 15);
             this.label3.TabIndex = 9;
             this.label3.Text = "Angle right:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 278);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 15);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Ratio Left:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(84, 82);
+            this.label5.Location = new System.Drawing.Point(592, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 15);
             this.label5.TabIndex = 11;
             this.label5.Text = "Length:";
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(-20, 377);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 15);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Ratio right:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(563, 356);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 15);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Ratio left:";
             // 
-            // panel1
+            // btnColor
             // 
-            this.panel1.Controls.Add(this.tBAngleLeft);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.tBAngleRight);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.tBIterTimes);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.tBRatioLeft);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.tBLength);
-            this.panel1.Location = new System.Drawing.Point(447, 59);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 357);
-            this.panel1.TabIndex = 13;
+            this.btnColor.Location = new System.Drawing.Point(-79, 483);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(103, 33);
+            this.btnColor.TabIndex = 15;
+            this.btnColor.Text = "Click to change color";
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.BtnColor_Click);
+            // 
+            // panelColor
+            // 
+            this.panelColor.Location = new System.Drawing.Point(72, 486);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(55, 29);
+            this.panelColor.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1106, 567);
             this.Controls.Add(this.treePanel);
+            this.Controls.Add(this.tBLength);
+            this.Controls.Add(this.tBIterTimes);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tBAngleLeft);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tBAngleRight);
+            this.Controls.Add(this.tBRatioRight);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tBRatioLeft);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.treePanel.ResumeLayout(false);
-            this.treePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tBRatioRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBIterTimes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBAngleLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBAngleRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBRatioLeft)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tBRatioRight)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -218,9 +231,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnColor;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Panel panelColor;
     }
 }
 

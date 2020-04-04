@@ -20,11 +20,15 @@ namespace Cayley2._0
         public int AngleRight { get; set; }
         public int RatioRight { get; set; }
         public int RatioLeft { get; set; }
+        public Pen Pen { get; set; }
+
 
         double th1 => AngleLeft * Math.PI / 180;
         double th2 => AngleRight * Math.PI / 180;
         double per1 => RatioLeft * 0.02;
         double per2 => RatioRight * 0.02;
+        double paraX => 1.5;
+        double paraY => 1.5;
 
 
         public Form1()
@@ -38,12 +42,27 @@ namespace Cayley2._0
             AngleRight = 20;
             RatioLeft = 35;
             RatioRight = 30;
+            Pen = Pens.Black;
+            panelColor.BackColor = Color.Black;
             graphics = treePanel.CreateGraphics();
+            SizeChanged += Form1_SizeChanged;
 
 
         }
 
-
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control.Name != "treePanel")
+                {
+                    control.Size = new Size(
+                        Convert.ToInt32(control.Size.Width * paraX),
+                        Convert.ToInt32(control.Size.Height * paraY)
+                        );
+                }
+            }
+        }
 
         void drawCayleyTree(int n,
             double x0, double y0, double leng, double th)
@@ -59,7 +78,7 @@ namespace Cayley2._0
 
         private void drawLine(double x0, double y0, double x1, double y1)
         {
-            graphics.DrawLine(Pens.Blue,
+            graphics.DrawLine(Pen,
                 (int)x0, (int)y0, (int)x1, (int)y1);
         }
 
@@ -108,6 +127,27 @@ namespace Cayley2._0
         private void TreePanel_Paint(object sender, PaintEventArgs e)
         {
             drawCayleyTree(IterationTimes, 130, 310, 100, -Math.PI / 2);
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+           
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnColor_Click(object sender, EventArgs e)
+        {
+            this.colorDialog1.ShowDialog();
+            Color color = colorDialog1.Color;
+            this.panelColor.BackColor = color;
+            this.Pen = new Pen(color);
+            treePanel.Refresh();
+            
         }
     }
 }
