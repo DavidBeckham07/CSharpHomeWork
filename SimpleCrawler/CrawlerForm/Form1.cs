@@ -53,6 +53,8 @@ namespace CrawlerForm {
 
     private void btnStart_Click(object sender, EventArgs e) {
       resultBindingSource.Clear();
+            crawler.web_file.Clear();
+            crawler.count = 0;
       crawler.StartURL = txtUrl.Text;
 
       Match match = Regex.Match(crawler.StartURL, Crawler.urlParseRegex);
