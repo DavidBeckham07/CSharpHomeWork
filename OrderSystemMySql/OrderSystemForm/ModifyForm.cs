@@ -98,7 +98,9 @@ namespace OrderSystemForm
                 }
                 else
                 {
-                    Service.orderList.Add(Current);
+                    //Service.orderList.Add(Current);
+                    Service.context.Orders.Add(Current);
+                    Service.context.SaveChanges();
                     this.Close();
                 }
             }

@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.orderDataGridView = new System.Windows.Forms.DataGridView();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemDataGridView = new System.Windows.Forms.DataGridView();
+            this.good_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.good_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttomTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.mainPanel = new System.Windows.Forms.Panel();
@@ -50,23 +52,24 @@
             this.orderdbDataSet = new OrderSystemForm.orderdbDataSet();
             this.ordersTableAdapter = new OrderSystemForm.orderdbDataSetTableAdapters.ordersTableAdapter();
             this.orderitemsTableAdapter = new OrderSystemForm.orderdbDataSetTableAdapters.orderitemsTableAdapter();
-            this.good_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.good_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalSumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderdbDataSet1 = new OrderSystemForm.orderdbDataSet1();
+            this.totalSumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ordersTableAdapter1 = new OrderSystemForm.orderdbDataSet1TableAdapters.ordersTableAdapter();
+            this.orderitemsTableAdapter1 = new OrderSystemForm.orderdbDataSet1TableAdapters.orderitemsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             this.buttomTableLayoutPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderdbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderItemsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderdbDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,11 +94,6 @@
             this.orderDataGridView.TabIndex = 0;
             this.orderDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataMember = "orders";
-            this.orderBindingSource.DataSource = this.orderdbDataSet1;
-            // 
             // itemDataGridView
             // 
             this.itemDataGridView.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
@@ -116,6 +114,30 @@
             this.itemDataGridView.RowTemplate.Height = 27;
             this.itemDataGridView.Size = new System.Drawing.Size(573, 189);
             this.itemDataGridView.TabIndex = 1;
+            // 
+            // good_Name
+            // 
+            this.good_Name.DataPropertyName = "good_Name";
+            this.good_Name.HeaderText = "good_Name";
+            this.good_Name.MinimumWidth = 6;
+            this.good_Name.Name = "good_Name";
+            this.good_Name.Width = 125;
+            // 
+            // good_Price
+            // 
+            this.good_Price.DataPropertyName = "good_Price";
+            this.good_Price.HeaderText = "good_Price";
+            this.good_Price.MinimumWidth = 6;
+            this.good_Price.Name = "good_Price";
+            this.good_Price.Width = 125;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Number";
+            this.Number.MinimumWidth = 6;
+            this.Number.Name = "Number";
+            this.Number.Width = 125;
             // 
             // itemBindingSource
             // 
@@ -160,6 +182,7 @@
             // 
             // modifyOrderBtn
             // 
+            this.modifyOrderBtn.Enabled = false;
             this.modifyOrderBtn.Location = new System.Drawing.Point(3, 3);
             this.modifyOrderBtn.Name = "modifyOrderBtn";
             this.modifyOrderBtn.Size = new System.Drawing.Size(150, 25);
@@ -274,37 +297,10 @@
             // 
             this.orderitemsTableAdapter.ClearBeforeFill = true;
             // 
-            // good_Name
+            // orderItemsBindingSource
             // 
-            this.good_Name.DataPropertyName = "good_Name";
-            this.good_Name.HeaderText = "good_Name";
-            this.good_Name.MinimumWidth = 6;
-            this.good_Name.Name = "good_Name";
-            this.good_Name.Width = 125;
-            // 
-            // good_Price
-            // 
-            this.good_Price.DataPropertyName = "good_Price";
-            this.good_Price.HeaderText = "good_Price";
-            this.good_Price.MinimumWidth = 6;
-            this.good_Price.Name = "good_Price";
-            this.good_Price.Width = 125;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Number";
-            this.Number.MinimumWidth = 6;
-            this.Number.Name = "Number";
-            this.Number.Width = 125;
-            // 
-            // totalSumDataGridViewTextBoxColumn
-            // 
-            this.totalSumDataGridViewTextBoxColumn.DataPropertyName = "TotalSum";
-            this.totalSumDataGridViewTextBoxColumn.HeaderText = "TotalSum";
-            this.totalSumDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalSumDataGridViewTextBoxColumn.Name = "totalSumDataGridViewTextBoxColumn";
-            this.totalSumDataGridViewTextBoxColumn.Width = 125;
+            this.orderItemsBindingSource.DataMember = "Order_Items";
+            this.orderItemsBindingSource.DataSource = this.orderBindingSource;
             // 
             // orderIdDataGridViewTextBoxColumn1
             // 
@@ -312,6 +308,7 @@
             this.orderIdDataGridViewTextBoxColumn1.HeaderText = "OrderId";
             this.orderIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.orderIdDataGridViewTextBoxColumn1.Name = "orderIdDataGridViewTextBoxColumn1";
+            this.orderIdDataGridViewTextBoxColumn1.Width = 125;
             // 
             // clientDataGridViewTextBoxColumn1
             // 
@@ -319,6 +316,7 @@
             this.clientDataGridViewTextBoxColumn1.HeaderText = "Client";
             this.clientDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.clientDataGridViewTextBoxColumn1.Name = "clientDataGridViewTextBoxColumn1";
+            this.clientDataGridViewTextBoxColumn1.Width = 125;
             // 
             // totalSumDataGridViewTextBoxColumn1
             // 
@@ -328,14 +326,31 @@
             this.totalSumDataGridViewTextBoxColumn1.Name = "totalSumDataGridViewTextBoxColumn1";
             this.totalSumDataGridViewTextBoxColumn1.Width = 125;
             // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataMember = "orders";
+            this.orderBindingSource.DataSource = this.orderdbDataSet1;
+            // 
             // orderdbDataSet1
             // 
             this.orderdbDataSet1.DataSetName = "orderdbDataSet1";
             this.orderdbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // totalSumDataGridViewTextBoxColumn
+            // 
+            this.totalSumDataGridViewTextBoxColumn.DataPropertyName = "TotalSum";
+            this.totalSumDataGridViewTextBoxColumn.HeaderText = "TotalSum";
+            this.totalSumDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalSumDataGridViewTextBoxColumn.Name = "totalSumDataGridViewTextBoxColumn";
+            this.totalSumDataGridViewTextBoxColumn.Width = 125;
+            // 
             // ordersTableAdapter1
             // 
             this.ordersTableAdapter1.ClearBeforeFill = true;
+            // 
+            // orderitemsTableAdapter1
+            // 
+            this.orderitemsTableAdapter1.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -348,7 +363,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             this.buttomTableLayoutPanel.ResumeLayout(false);
@@ -356,6 +370,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderdbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderItemsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderdbDataSet1)).EndInit();
             this.ResumeLayout(false);
 
@@ -394,6 +410,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalSumDataGridViewTextBoxColumn;
         private orderdbDataSet1 orderdbDataSet1;
         private orderdbDataSet1TableAdapters.ordersTableAdapter ordersTableAdapter1;
+        private System.Windows.Forms.BindingSource orderItemsBindingSource;
+        private orderdbDataSet1TableAdapters.orderitemsTableAdapter orderitemsTableAdapter1;
     }
 }
 

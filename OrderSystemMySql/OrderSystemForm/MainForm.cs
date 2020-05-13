@@ -81,7 +81,10 @@ namespace OrderSystemForm
             modifyForm = new ModifyForm(service, order);
             modifyForm.ShowDialog();
             this.orderBindingSource.ResetBindings(true);
-            this.orderBindingSource.DataSource = service.orderList;
+            this.orderitemsTableAdapter1.Fill(this.orderdbDataSet1.orderitems);
+            this.ordersTableAdapter1.Fill(this.orderdbDataSet1.orders);
+            this.orderitemsTableAdapter.Fill(this.orderdbDataSet.orderitems);
+            this.ordersTableAdapter.Fill(this.orderdbDataSet.orders);
         }
 
         private void SearchOrderBtn_Click(object sender, EventArgs e)
@@ -112,6 +115,8 @@ namespace OrderSystemForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“orderdbDataSet1.orderitems”中。您可以根据需要移动或删除它。
+            this.orderitemsTableAdapter1.Fill(this.orderdbDataSet1.orderitems);
             // TODO: 这行代码将数据加载到表“orderdbDataSet1.orders”中。您可以根据需要移动或删除它。
             this.ordersTableAdapter1.Fill(this.orderdbDataSet1.orders);
             // TODO: 这行代码将数据加载到表“orderdbDataSet.orderitems”中。您可以根据需要移动或删除它。
@@ -125,10 +130,11 @@ namespace OrderSystemForm
 
         private void ModifyOrderBtn_Click(object sender, EventArgs e)
         {
-            Order current = (Order)this.orderBindingSource.Current;
-            new ModifyForm(service, current).ShowDialog();
+            var current = this.orderBindingSource.Current;
+            
+            new ModifyForm(service, (Order)current).ShowDialog();
             this.orderBindingSource.ResetBindings(true);
-            this.orderBindingSource.DataSource = service.orderList;
+            this.orderBindingSource.DataSource = orderdbDataSet1.orders;
 
 
 
@@ -136,7 +142,7 @@ namespace OrderSystemForm
 
         private void ReturnBtn_Click(object sender, EventArgs e)
         {
-            this.orderBindingSource.DataSource = service.orderList;
+            this.orderBindingSource.DataSource = orderdbDataSet1.orders;
             this.orderBindingSource.ResetBindings(true);
         }
 

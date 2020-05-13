@@ -9,7 +9,7 @@ namespace OrderSystem
 {
     public class OrderService
     {
-        OrderContext context;
+        public OrderContext context;
         public List<Order> orderList;
         XmlSerializer orderXmlSeri;
         string xmlFileName;
@@ -19,13 +19,21 @@ namespace OrderSystem
         {
             orderList = new List<Order>();
             orderXmlSeri = new XmlSerializer(typeof(List<Order>));
-            Order order = new Order();
             context = new OrderContext();
-            OrderItem item = new OrderItem("name", 2.0, 2);
-            order.AddItem(item);
-            
-            context.Orders.Add(order);
-            context.SaveChanges();
+            if(context.Orders.Count() == 0)
+            {
+                Order order = new Order("小红");
+                order.AddItem(new OrderItem("eggs", 2.0, 2));
+                order.AddItem(new OrderItem("chicken", 13.0, 2));
+                context.Orders.Add(order);
+                order = new Order("小明");
+                order.AddItem(new OrderItem("meat", 20, 5));
+                order.AddItem(new OrderItem("ball", 62, 1));
+
+                context.Orders.Add(order);
+                context.SaveChanges();
+            }
+
 
         }
 
@@ -36,6 +44,24 @@ namespace OrderSystem
 
         public Order SearchOrder(string field, string value)
         {
+            Order order;
+            switch (field.ToLower())
+            {
+                
+                case ("id"):
+                order = context.Orders.Where(x => x.OrderId == int.Parse(value)).First();
+                    return order;
+      
+                case ("client"):
+                    order = context.Orders.Where(x => x.Client == value).First();
+                    return order;
+                    
+            }
+            throw new Exception("no such order");
+
+
+
+            /*
             IEnumerable<Order> order = orderList.AsEnumerable();
             switch (field.ToLower())
             {
@@ -52,13 +78,14 @@ namespace OrderSystem
                 throw new Exception("no such order");
             }
             return order.ToList().ElementAt(0);
+            */
 
         }
 
         public void DeleteOrder(string field, string value)
         {
             Order result = SearchOrder(field, value);
-            orderList.Remove(result);
+            context.Orders.Remove(result);
         }
 
         // 初始化订单
@@ -66,7 +93,7 @@ namespace OrderSystem
         {
             Order newOrder = new Order(orderList.Count().ToString());
             newOrder.Client = orderInitPara;
-            orderList.Add(newOrder);
+            context.Orders.Add(newOrder);
             return newOrder;
 
         }
@@ -111,35 +138,34 @@ namespace OrderSystem
         public void Export(string pathName, string fileName)
         {
             xmlFileName = pathName +"\\" + fileName;
+
             using (FileStream fs = new FileStream(xmlFileName, FileMode.Create))
             {
-                orderXmlSeri.Serialize(fs, orderList);
+                orderXmlSeri.Serialize(fs, context.Orders);
             }
             
         }
 
-        public List<Order> Import()
+        public List<Order> Import(string fileName)
         {
             if (xmlFileName.Length == 0) { throw new Exception("xml file has not yet generated"); }
             using (FileStream fs = new FileStream(xmlFileName, FileMode.Open))
             {
-                List<Order> orderList = (List<Order>)orderXmlSeri.Deserialize(fs);
+                var orderList = (List<Order>)orderXmlSeri.Deserialize(fs);
+                foreach(var entity in context.Orders)
+                {
+                    context.Orders.Remove(entity);
+                }
+
+                foreach(var entity in orderList)
+                {
+                    context.Orders.Add(entity);
+                }
             }
             return orderList;
 
         }
 
-        public void Import(string fileName)
-        {
-            if (fileName.Length == 0) { throw new Exception("xml file has not yet generated"); }
-            using (FileStream fs = new FileStream(fileName, FileMode.Open))
-            {
-                List<Order> orderList = (List<Order>)orderXmlSeri.Deserialize(fs);
-                this.orderList = orderList;
-            }
-            
-
-        }
 
         public override bool Equals(object obj)
         {
