@@ -1,14 +1,14 @@
 # CSharpHomeWork
-Homework1：calculator
-Homework2：maxMinAvgTotal/ PrimeFactor
-Homework3：shapes
-Homework4：Clock
-Homework5：OrderSystem
-Homework6：OrderSystem 
-Homework7：CaleyTree
-Homework8：OederSystem
-Homework9：Crawler
-Homework10：Parallel Crawler
-Homework11：OrderSystem test
-Homework12：OrderSystem mysql
-Homework13：OrderSystem web
+Homework1：calculator\n
+Homework2：maxMinAvgTotal/ PrimeFactor\n
+Homework3：shapes\n
+Homework4：Clock\n
+Homework5：OrderSystem\n
+Homework6：OrderSystem \n
+Homework7：CaleyTree\n
+Homework8：OederSystem\n
+Homework9：Crawler\n
+Homework10：Parallel Crawler\n
+Homework11：OrderSystem test\n
+Homework12：OrderSystem mysql\n
+Homework13：OrderSystem web\n
