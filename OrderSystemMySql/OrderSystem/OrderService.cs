@@ -20,19 +20,17 @@ namespace OrderSystem
             orderList = new List<Order>();
             orderXmlSeri = new XmlSerializer(typeof(List<Order>));
             context = new OrderContext();
-            if(context.Orders.Count() == 0)
-            {
-                Order order = new Order("小红");
-                order.AddItem(new OrderItem("eggs", 2.0, 2));
-                order.AddItem(new OrderItem("chicken", 13.0, 2));
-                context.Orders.Add(order);
-                order = new Order("小明");
-                order.AddItem(new OrderItem("meat", 20, 5));
-                order.AddItem(new OrderItem("ball", 62, 1));
+            Order order = new Order("小红");
+            order.AddItem(new OrderItem("eggs", 2.0, 2));
+            order.AddItem(new OrderItem("chicken", 13.0, 2));
+            context.Orders.Add(order);
+            order = new Order("小明");
+            order.AddItem(new OrderItem("meat", 20, 5));
+            order.AddItem(new OrderItem("ball", 62, 1));
 
-                context.Orders.Add(order);
-                context.SaveChanges();
-            }
+            context.Orders.Add(order);
+            context.SaveChanges();
+
 
 
         }
