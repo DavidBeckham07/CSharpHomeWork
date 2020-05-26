@@ -2,7 +2,7 @@
 * Homework1：CalculatorForm
 * Homework2：ArrCal & PrimeFactor & PrimeCollector
 * Homework3：Shape & GenericClass
-*  Homework4：Clock
+* Homework4：Clock
 * Homework5：OrderSystem
 * Homework6：OrderSystemForm
 * Homework7：Caley2.0
